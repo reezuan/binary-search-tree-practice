@@ -110,6 +110,20 @@ class Tree {
         return currentNode;
     }
 
+    find(value, rootNode = this.root) {
+        let currentNode = rootNode;
+
+        if (currentNode === null) {
+            currentNode = null;
+        } else if (value < currentNode.data) {
+            currentNode = this.find(value, currentNode.left);
+        } else if (value > currentNode.data) {
+            currentNode = this.find(value, currentNode.right);
+        }
+
+        return currentNode;
+    }
+
     // --------------------------------------------------------------------
     // 👇🏼 HELPER METHODS 👇🏼
     // --------------------------------------------------------------------
