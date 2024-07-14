@@ -108,52 +108,6 @@ class Tree {
         }
 
         return currentNode;
-
-        // let parentNode = null;
-        // let currentNode = this.root;
-
-        // // Locate the node with the value.
-        // while (currentNode.left !== null || currentNode.right !== null) {
-        //     if (value === currentNode.data) {
-        //         break;
-        //     }
-            
-        //     if (value < currentNode.data) {
-        //         if (currentNode.left !== null) {
-        //             parentNode = currentNode;
-        //             currentNode = currentNode.left;
-        //             continue;
-        //         } else if (currentNode.left === null) {
-        //             // Exit the method as the value doesn't exist in the tree.
-        //             return;
-        //         }
-        //     }
-
-        //     if (value > currentNode.data) {
-        //         if (currentNode.right !== null) {
-        //             parentNode = currentNode;
-        //             currentNode = currentNode.right;
-        //             continue;
-        //         } else if (currentNode.right === null) {
-        //             // Exit the method as the value doesn't exist in the tree.
-        //             return;
-        //         }
-        //     }
-        // }
-
-        // // Handle deletion of node.
-
-        // if (parentNode === null) {
-        //     this.root = null;
-        //     return;
-        // }
-
-        // // Deleting node that has no children (i.e. leaf node).
-        // if (currentNode.left === null && currentNode.right === null) {
-        //     if (currentNode.data < parentNode.data) {
-                
-        //     }
-        // }
     }
 
     // --------------------------------------------------------------------
