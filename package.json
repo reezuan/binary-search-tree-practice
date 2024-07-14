@@ -1,0 +1,13 @@
+{
+  "name": "binary-search-tree-practice",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Practising creating binary search trees.",
+  "main": "Node.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
