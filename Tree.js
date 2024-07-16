@@ -56,7 +56,7 @@ class Tree {
     }
 
     /**
-     * Insert the given value into the tree.
+     * Inserts a node with the given value into the tree.
     */
     insert(value, rootNode = this.root) {
         let currentNode = rootNode;
@@ -72,6 +72,9 @@ class Tree {
         return currentNode;
     }
 
+    /**
+     * Deletes the node with the given value from the tree.
+     */
     deleteItem(value, rootNode = this.root) {
         let currentNode = rootNode;
 
@@ -110,6 +113,9 @@ class Tree {
         return currentNode;
     }
 
+    /**
+     * Returns the node with the given value.
+     */
     find(value, rootNode = this.root) {
         let currentNode = rootNode;
 
@@ -122,6 +128,39 @@ class Tree {
         }
 
         return currentNode;
+    }
+
+    /**
+     * Returns the given node’s height. Height is defined as the number
+     * of edges in the longest path from the given node to a leaf node.
+     */
+    height(node = this.root) {
+        if (node === null) {
+            return -1;
+        }
+
+        let leftHeight = this.height(node.left);
+        let rightHeight = this.height(node.right);
+
+        return Math.max(leftHeight, rightHeight) + 1;
+    }
+
+    /**
+     * Returns the given node’s depth. Depth is defined as the number
+     * of edges in the path from the given node to the tree’s root node.
+     */
+    depth(node, root = this.root) {
+        if (root === null) {
+            return -1;
+        } else if (node === root) {
+            return 0;
+        }
+
+        let leftHeight = this.depth(node, root.left);
+        let rightHeight = this.depth(node, root.right);
+
+        // Increment counter only when matching node has been found.
+        return Math.max(leftHeight, rightHeight) === -1 ? -1 : Math.max(leftHeight, rightHeight) + 1;
     }
 
     // --------------------------------------------------------------------
