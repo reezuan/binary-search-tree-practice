@@ -196,6 +196,17 @@ class Tree {
         return Math.max(leftHeight, rightHeight) === -1 ? -1 : Math.max(leftHeight, rightHeight) + 1;
     }
 
+    isBalanced() {
+        let leftTreeHeight = this.height(this.root.left);
+        let rightTreeHeight = this.height(this.root.right);
+    
+        if (Math.abs(leftTreeHeight - rightTreeHeight) > 1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
     // --------------------------------------------------------------------
     // 👇🏼 HELPER METHODS 👇🏼
     // --------------------------------------------------------------------
