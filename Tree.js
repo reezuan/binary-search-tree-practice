@@ -189,21 +189,29 @@ class Tree {
             return 0;
         }
 
-        let leftHeight = this.depth(node, root.left);
-        let rightHeight = this.depth(node, root.right);
+        let leftDepth = this.depth(node, root.left);
+        let rightDepth = this.depth(node, root.right);
 
         // Increment counter only when matching node has been found.
-        return Math.max(leftHeight, rightHeight) === -1 ? -1 : Math.max(leftHeight, rightHeight) + 1;
+        return Math.max(leftDepth, rightDepth) === -1 ? -1 : Math.max(leftDepth, rightDepth) + 1;
     }
 
-    isBalanced() {
-        let leftTreeHeight = this.height(this.root.left);
-        let rightTreeHeight = this.height(this.root.right);
-    
-        if (Math.abs(leftTreeHeight - rightTreeHeight) > 1) {
+    /**
+     * Checks if the tree is balanced (i.e. the difference in height
+     * between the left and right subtree of every node is not more
+     * than 1).
+     */
+    isBalanced(root = this.root) {        
+        let leftHeight = this.height(root.left) === -1 ? 0 : this.height(root.left) + 1;
+        let rightHeight = this.height(root.right) === -1 ? 0 : this.height(root.right) + 1;
+
+        if (Math.abs(leftHeight - rightHeight) > 1) {
             return false;
         } else {
-            return true;
+            let isLeftBalanced = root.left === null ? true : this.isBalanced(root.left);
+            let isRightBalanced = root.right === null ? true : this.isBalanced(root.right);
+
+            return isLeftBalanced === false || isRightBalanced === false ? false : true;
         }
     }
 
