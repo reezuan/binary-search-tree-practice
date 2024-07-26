@@ -131,6 +131,39 @@ class Tree {
     }
 
     /**
+     * Accepts an optional callback function. Traverses the tree in
+     * breadth-first level order and provides each node as an argument
+     * to the callback.
+     */
+    levelOrder(callback) {
+        let queue = [];
+        
+        if (this.root === null) {
+            return;
+        }
+
+        queue.push(this.root);
+
+        while (queue.length > 0) {
+            let currentNode = queue[0];
+
+            if (arguments.length > 0) {
+                callback(currentNode);
+            }
+
+            if (currentNode.left !== null) {
+                queue.push(currentNode.left);
+            }
+
+            if (currentNode.right !== null) {
+                queue.push(currentNode.right);
+            }
+
+            queue.shift();
+        }
+    }
+
+    /**
      * Returns the given node’s height. Height is defined as the number
      * of edges in the longest path from the given node to a leaf node.
      */
