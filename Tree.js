@@ -136,6 +136,10 @@ class Tree {
      * to the callback.
      */
     levelOrder(callback) {
+        if (arguments.length !== 1 || typeof callback !== "function") {
+            throw new Error("A callback is required.");
+        }
+
         let queue = [];
         
         if (this.root === null) {
