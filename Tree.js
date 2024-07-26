@@ -215,6 +215,19 @@ class Tree {
         }
     }
 
+    /**
+     * Rebalances an unbalanced tree.
+     */
+    rebalance() {
+        let treeValues = [];
+
+        this.levelOrder(node => {
+            treeValues.push(node.data);
+        });
+
+        this.root = this.#buildTree(treeValues);
+    }
+
     // --------------------------------------------------------------------
     // 👇🏼 HELPER METHODS 👇🏼
     // --------------------------------------------------------------------
