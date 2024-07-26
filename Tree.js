@@ -168,6 +168,61 @@ class Tree {
     }
 
     /**
+     * Accepts a callback as a parameter. Traverses the tree in preorder
+     * traversal and passes each node to the provided callback.
+     */
+    preOrder(callback, node = this.root) {
+        if (typeof callback !== "function") {
+            throw new Error("A callback is required.");
+        }
+
+        if (node === null) {
+            return;
+        }
+
+        callback(node);
+        this.preOrder(callback, node.left);
+        this.preOrder(callback, node.right);
+    }
+
+    /**
+     * Accepts a callback as a parameter. Traverses the tree in in-order
+     * traversal and passes each node to the provided callback.
+     */
+    inOrder(callback, node = this.root) {
+        if (typeof callback !== "function") {
+            throw new Error("A callback is required.");
+        }
+
+        if (node === null) {
+            return;
+        }
+
+        this.inOrder(callback, node.left);
+        callback(node);
+        this.inOrder(callback, node.right);
+    }
+
+    /**
+     * Accepts a callback as a parameter. Traverses the tree in 
+     * post-order traversal and passes each node to the provided
+     * callback.
+     */
+    postOrder(callback, node = this.root) {
+        if (typeof callback !== "function") {
+            throw new Error("A callback is required.");
+        }
+
+        if (node === null) {
+            return;
+        }
+
+        this.postOrder(callback, node.left);
+        this.postOrder(callback, node.right);
+        callback(node);
+    }
+
+    /**
      * Returns the given node’s height. Height is defined as the number
      * of edges in the longest path from the given node to a leaf node.
      */
