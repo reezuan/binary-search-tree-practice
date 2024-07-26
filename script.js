@@ -38,7 +38,8 @@ tree.levelOrder(node => {
     levelOrderValues.push(node.data);
 });
 
-console.log(levelOrderValues); // [64, 41, 80, 32, 45, 69, 90, 9, 33, 43, 51, 66, 73, 81, 96, 57, 77, 99]
+console.log(levelOrderValues);
+// [64, 41, 80, 32, 45, 69, 90, 9, 33, 43, 51, 66, 73, 81, 96, 57, 77, 99]
 
 // 4. Print out all elements in pre-order.
 let preOrderValues = [];
@@ -47,7 +48,8 @@ tree.preOrder(node => {
     preOrderValues.push(node.data);
 });
 
-console.log(preOrderValues); // [64, 41, 32, 9, 33, 45, 43, 51, 57, 80, 69, 66, 73, 77, 90, 81, 96, 99]
+console.log(preOrderValues);
+// [64, 41, 32, 9, 33, 45, 43, 51, 57, 80, 69, 66, 73, 77, 90, 81, 96, 99]
 
 // 5. Print out all elements in in-order.
 let inOrderValues = [];
@@ -56,7 +58,8 @@ tree.inOrder(node => {
     inOrderValues.push(node.data);
 });
 
-console.log(inOrderValues); // [9, 32, 33, 41, 43, 45, 51, 57, 64, 66, 69, 73, 77, 80, 81, 90, 96, 99]
+console.log(inOrderValues);
+// [9, 32, 33, 41, 43, 45, 51, 57, 64, 66, 69, 73, 77, 80, 81, 90, 96, 99]
 
 // 6. Print out all elements in post-order.
 let postOrderValues = [];
@@ -65,7 +68,8 @@ tree.postOrder(node => {
     postOrderValues.push(node.data);
 });
 
-console.log(postOrderValues); // [9, 33, 32, 43, 57, 51, 45, 41, 66, 77, 73, 69, 81, 99, 96, 90, 80, 64]
+console.log(postOrderValues);
+// [9, 33, 32, 43, 57, 51, 45, 41, 66, 77, 73, 69, 81, 99, 96, 90, 80, 64]
 
 // 7. Unbalance the tree by adding several numbers > 100.
 for (let i = 0; i < 10; i++) {
